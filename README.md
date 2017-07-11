@@ -10,4 +10,4 @@ To compile, use the following command line, or its equivalent on your machine:
 
 To run, supply a rational number as the parameter mu:
 
-> % ./stingy.out 71/100
+> $ ./stingy.out 71/100
