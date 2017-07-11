@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <gmpxx.h>
+#include <algorithm>
 #include <stdlib.h>
 
 int main(int argc, char *argv[]){
@@ -20,12 +21,18 @@ int main(int argc, char *argv[]){
     d1 = 681; d1/=1000;
     for (i=0; i<n; i++) {
 	x.push_back(y);
-	a.push_back(i);
-	//y = 1-(1-y)/2;
-	y+=d1;
+	//y+=d1;
+	y+=mpq_class(1,(i+2)*(i+2));
 	if (y>=1) y-=1;
     }
     x.push_back(1);
+    std::sort(x.begin(),x.end());
+    for (j=0;j<n;j++){
+	d1 = x[j+1]-x[j];
+	for (i=0;i<a.size();i++) if (x[a[i]+1]-x[a[i]] > d1) break;
+	ait=a.begin()+i;
+	a.insert(ait,j);
+    }
 
     while(true){
 	d1 = mu/(n+1);
