@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <gmpxx.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[]){
     mpq_class mu(argv[1]);
@@ -12,11 +13,19 @@ int main(int argc, char *argv[]){
     unsigned long i,j,k,n; 
 
     if (argc < 2) return 1;
+    if (argc > 2) n = std::atoi(argv[2]);
+    else n = 1;
 
-    x.push_back(0);
+    y = 0;
+    d1 = 681; d1/=1000;
+    for (i=0; i<n; i++) {
+	x.push_back(y);
+	a.push_back(i);
+	//y = 1-(1-y)/2;
+	y+=d1;
+	if (y>=1) y-=1;
+    }
     x.push_back(1);
-    a.push_back(0);
-    n=1;
 
     while(true){
 	d1 = mu/(n+1);
