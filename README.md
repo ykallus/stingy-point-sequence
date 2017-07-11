@@ -4,6 +4,10 @@ This code implements an algorithm proposed by Christian Remling for sequentially
 
 See https://mathoverflow.net/questions/275158/sequential-addition-of-points-on-a-circle-optimizing-asymptotic-packing-radius
 
-To compile, use the following command line, or its equivalent on your machine
+To compile, use the following command line, or its equivalent on your machine:
 
 > $ g++ -o stingy.out stingy.cpp -lgmp -lgmpxx -O3
+
+To run, supply a rational number as the parameter mu:
+
+> % ./stingy.out 71/100
